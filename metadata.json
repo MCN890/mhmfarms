@@ -1,0 +1,6 @@
+{
+  "name": "MHMfarmsGest",
+  "description": "Sistema integrado de gestão de animais da fazenda MHMFarms e Website Institucional com painel CMS.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
