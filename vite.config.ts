@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-     base: '/mhmfarms/',
+     base: '/',
     plugins: [
       react({
         jsxRuntime: 'automatic',
