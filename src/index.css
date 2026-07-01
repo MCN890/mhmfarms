@@ -25,10 +25,14 @@
   --copper:     #A05A18;
   --rust:       #7A3B12;
 
-  /* PALETA FINAL POR ABA */
+  /* ── COR SURPRESA (CTA e destaques) ── */
+  --savana-sunset: #E8833A;  /* laranja vibrante */
+  --savana-glow:   #F5B342;  /* amarelo brilhante */
+
+  /* ── PALETA FINAL POR ABA ── */
   --c-inicio:   #C47B1C;
   --c-galeria:  #A8866B;
-  --c-animais:  #A87B5A;
+  --c-animais:  #8BA87A;
   --c-habitats: #A8987A;
   --c-loja:     #7A6020;
   --c-noticias: #A8876B;
@@ -63,8 +67,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; letter-spacing: -0.02em; }
    LOGO — TAMANHO CORRIGIDO (PEQUENO)
    ═══════════════════════════════════════════════════════════ */
 .logo-circle {
-  width: 48px !important;  /* tamanho fixo */
-  height: 48px !important; /* tamanho fixo */
+  width: 48px !important;
+  height: 48px !important;
   min-width: 48px !important;
   max-width: 48px !important;
   border-radius: 50%;
@@ -101,7 +105,6 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; letter-spacing: -0.02em; }
   filter: brightness(0.94) contrast(1.08) saturate(1.05);
 }
 
-/* ── LOGO NO FOOTER (AINDA MENOR) ── */
 footer .logo-circle,
 #website-footer .logo-circle {
   width: 40px !important;
@@ -110,7 +113,6 @@ footer .logo-circle,
   max-width: 40px !important;
 }
 
-/* ── TEXTO DO LOGO ── */
 .logo-text {
   display: flex;
   flex-direction: column;
@@ -136,7 +138,6 @@ footer .logo-circle,
   line-height: 1;
 }
 
-/* ── HEADER/NAV COM LOGO PEQUENO ── */
 #main-navigation .flex.items-center.gap-3,
 .glass-nav .flex.items-center.gap-3 {
   gap: 10px !important;
@@ -185,10 +186,10 @@ footer .logo-circle,
 
 .public-site-wrapper.tab-animais::before {
   background: linear-gradient(155deg,
-    rgba(210, 185, 165, 0.88) 0%,
-    rgba(195, 170, 150, 0.82) 40%,
-    rgba(220, 195, 175, 0.86) 70%,
-    rgba(205, 180, 160, 0.90) 100%
+    rgba(195, 215, 185, 0.88) 0%,
+    rgba(180, 205, 170, 0.82) 40%,
+    rgba(200, 220, 190, 0.86) 70%,
+    rgba(190, 210, 180, 0.90) 100%
   );
 }
 
@@ -273,7 +274,7 @@ footer .logo-circle,
 .nav-active-contactos { background: var(--c-contactos) !important; color: #fff !important; font-weight: 700; }
 
 /* ═══════════════════════════════════════════════════════════
-   GLASS CARDS
+   GLASS CARDS — COM BORDA GRADIENTE AO HOVER
    ═══════════════════════════════════════════════════════════ */
 .glass-card {
   background: rgba(250, 245, 236, 0.85);
@@ -281,31 +282,111 @@ footer .logo-circle,
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(196, 123, 28, 0.14);
   border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
 }
 
 .glass-card-hover {
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
 .glass-card-hover:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px) scale(1.01);
   background: rgba(250, 245, 236, 0.95);
-  border-color: rgba(196, 123, 28, 0.35);
-  box-shadow: 0 24px 48px rgba(43, 26, 10, 0.12), 0 0 0 1px rgba(196, 123, 28, 0.18);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 
+    0 24px 48px rgba(43, 26, 10, 0.15),
+    0 0 0 2px rgba(232, 131, 58, 0.3);
+}
+
+/* ── Efeito de brilho nos cards ao hover ── */
+.glass-card-hover::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--savana-sunset), var(--savana-glow), var(--gold));
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.glass-card-hover:hover::before {
+  opacity: 1;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* ═══════════════════════════════════════════════════════════
-   GRADIENT DE TEXTO
+   BOTÕES CTA — COR SURPRESA (laranja savana)
    ═══════════════════════════════════════════════════════════ */
-.text-gradient {
-  background: linear-gradient(135deg, var(--ink) 20%, var(--amber) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 600;
+.btn-cta {
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(135deg, var(--savana-sunset), var(--savana-glow));
+  background-size: 200% 200%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 4px 20px rgba(232, 131, 58, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-cta:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 40px rgba(232, 131, 58, 0.50);
+  background-position: 100% 100%;
+}
+
+.btn-cta:active {
+  transform: scale(0.97);
+}
+
+/* ── Efeito de brilho no botão ── */
+.btn-cta::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.btn-cta:hover::after {
+  opacity: 1;
+  animation: btn-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes btn-glow {
+  0% { transform: translate(-30%, -30%) scale(0.8); opacity: 0.3; }
+  50% { transform: translate(0%, 0%) scale(1.2); opacity: 0.7; }
+  100% { transform: translate(30%, 30%) scale(0.8); opacity: 0.3; }
 }
 
 /* ═══════════════════════════════════════════════════════════
-   SECTION BARS
+   SECTION BARS — GRADIENTE DUPLO (surpresa visual)
    ═══════════════════════════════════════════════════════════ */
 .section-bar {
   position: relative;
@@ -319,84 +400,89 @@ footer .logo-circle,
   -webkit-backdrop-filter: blur(8px);
 }
 
+/* ── INÍCIO: dourado → laranja ── */
 .section-bar-inicio {
-  background: linear-gradient(270deg,
+  background: linear-gradient(135deg,
     rgba(245, 225, 175, 0.95),
-    rgba(255, 248, 230, 0.98),
-    rgba(240, 215, 160, 0.92),
+    rgba(232, 131, 58, 0.15),
     rgba(255, 248, 230, 0.98)
   );
-  background-size: 300% 300%;
   border: 1px solid rgba(196, 123, 28, 0.30);
   box-shadow: 0 1px 0 rgba(212, 160, 39, 0.25) inset, 0 4px 24px rgba(43, 26, 10, 0.10);
-  animation: bar-aurora 5.5s ease infinite;
   color: var(--ink);
 }
 
+/* ── GALERIA: castanho → dourado ── */
 .section-bar-galeria {
   background: linear-gradient(135deg,
     rgba(210, 185, 165, 0.95) 0%,
-    rgba(220, 195, 175, 0.98) 45%,
-    rgba(205, 180, 160, 0.95) 100%
+    rgba(212, 160, 39, 0.15) 50%,
+    rgba(220, 195, 175, 0.98) 100%
   );
   border: 1px solid rgba(168, 134, 107, 0.30);
   box-shadow: 0 1px 0 rgba(168, 134, 107, 0.20) inset, 0 4px 24px rgba(43, 26, 10, 0.10);
   color: #3D2E1E;
 }
 
+/* ── ANIMAIS: verde → dourado ── */
 .section-bar-animais {
   background: linear-gradient(135deg,
-    rgba(210, 185, 165, 0.95) 0%,
-    rgba(220, 195, 175, 0.98) 50%,
-    rgba(205, 180, 160, 0.95) 100%
+    rgba(195, 215, 185, 0.95) 0%,
+    rgba(212, 160, 39, 0.12) 50%,
+    rgba(205, 225, 195, 0.98) 100%
   );
-  border: 1px solid rgba(168, 123, 90, 0.30);
-  box-shadow: 0 1px 0 rgba(168, 123, 90, 0.20) inset, 0 4px 24px rgba(43, 26, 10, 0.08);
-  color: #3D2A1A;
+  border: 1px solid rgba(139, 168, 122, 0.30);
+  box-shadow: 0 1px 0 rgba(139, 168, 122, 0.20) inset, 0 4px 24px rgba(43, 26, 10, 0.08);
+  color: #2D3D1E;
 }
 
+/* ── HABITATS: khaki → verde ── */
 .section-bar-habitats {
   background: linear-gradient(135deg,
     rgba(200, 190, 175, 0.95) 0%,
-    rgba(210, 200, 185, 0.98) 50%,
-    rgba(195, 185, 170, 0.95) 100%
+    rgba(139, 168, 122, 0.12) 50%,
+    rgba(210, 200, 185, 0.98) 100%
   );
   border: 1px solid rgba(168, 152, 122, 0.30);
   box-shadow: 0 1px 0 rgba(168, 152, 122, 0.20) inset, 0 4px 24px rgba(43, 26, 10, 0.08);
   color: #3D3828;
 }
 
+/* ── LOJA: bronze → dourado ── */
 .section-bar-loja {
   background: linear-gradient(135deg,
     rgba(245, 230, 190, 0.95) 0%,
-    rgba(252, 240, 205, 0.98) 50%,
-    rgba(245, 230, 190, 0.95) 100%
+    rgba(212, 160, 39, 0.20) 50%,
+    rgba(252, 240, 205, 0.98) 100%
   );
   border: 1px solid rgba(150, 120, 30, 0.26);
   box-shadow: 0 1px 0 rgba(200, 170, 50, 0.20) inset, 0 4px 24px rgba(43, 26, 10, 0.08);
   color: var(--ink);
 }
 
+/* ── NOTÍCIAS: castanho → dourado ── */
 .section-bar-noticias {
   background: linear-gradient(135deg,
     rgba(215, 190, 170, 0.95) 0%,
-    rgba(228, 205, 185, 0.98) 50%,
-    rgba(210, 185, 165, 0.95) 100%
+    rgba(212, 160, 39, 0.12) 50%,
+    rgba(228, 205, 185, 0.98) 100%
   );
   border: 1px solid rgba(168, 135, 107, 0.30);
   box-shadow: 0 1px 0 rgba(168, 135, 107, 0.20) inset, 0 4px 24px rgba(43, 26, 10, 0.08);
   color: #3D3020;
 }
 
+/* ── CONTACTOS: azul → dourado ── */
 .section-bar-contactos {
   background: linear-gradient(135deg,
     rgba(191, 165, 122, 0.95) 0%,
-    rgba(209, 188, 151, 0.98) 50%,
-    rgba(191, 165, 122, 0.95) 100%
+    rgba(212, 160, 39, 0.10) 50%,
+    rgba(209, 188, 151, 0.98) 100%
   );
   border: 1px solid rgba(120, 92, 55, 0.26);
   box-shadow: 0 4px 24px rgba(43, 26, 10, 0.08);
   color: #4A3420;
+  animation: bar-pulse-ring 2.8s ease-in-out infinite;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -434,127 +520,13 @@ footer .logo-circle,
   100% { transform: translateY(-50%) rotate(360deg); }
 }
 
-.section-bar-inicio::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(110deg, transparent 25%, rgba(255,210,100,0.10) 50%, transparent 75%);
-  animation: bar-shimmer 4s linear infinite;
-  pointer-events: none;
-}
-
-.section-bar-galeria::before {
-  content: '';
-  position: absolute; width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(168, 134, 107, 0.12) 0%, transparent 70%);
-  right: -40px; top: -90px;
-  animation: bar-orb-drift 6.5s ease-in-out infinite;
-  pointer-events: none;
-}
-.section-bar-galeria::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(110deg, transparent 28%, rgba(168, 134, 107, 0.08) 50%, transparent 72%);
-  animation: bar-shimmer 3.8s linear infinite;
-  pointer-events: none;
-}
-
-.section-bar-animais::before {
-  content: '';
-  position: absolute; left: 0; right: 0; height: 1.5px;
-  background: linear-gradient(90deg, transparent 0%, rgba(168, 123, 90, 0.40) 50%, transparent 100%);
-  animation: bar-scanline 3s linear infinite;
-  pointer-events: none;
-}
-.section-bar-animais::after {
-  content: '';
-  position: absolute; width: 160px; height: 160px;
-  background: radial-gradient(circle, rgba(168, 123, 90, 0.10) 0%, transparent 70%);
-  left: -30px; bottom: -70px;
-  animation: bar-orb-drift 8.5s ease-in-out infinite reverse;
-  pointer-events: none;
-}
-
-.section-bar-habitats::before {
-  content: '';
-  position: absolute; width: 190px; height: 190px;
-  background: radial-gradient(circle, rgba(168, 152, 122, 0.12) 0%, transparent 70%);
-  right: -20px; top: -80px;
-  animation: bar-orb-drift 7.5s ease-in-out infinite;
-  pointer-events: none;
-}
-.section-bar-habitats::after {
-  content: '';
-  position: absolute; left: 0; right: 0; height: 1px; bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(168, 152, 122, 0.30), transparent);
-  animation: bar-breathe 3.2s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.section-bar-loja::before {
-  content: '✦';
-  position: absolute; right: 26px; top: 50%;
-  color: rgba(160, 110, 20, 0.55); font-size: 20px;
-  animation: bar-gold-spin 5.5s linear infinite;
-  pointer-events: none;
-}
-.section-bar-loja::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(110deg, transparent 28%, rgba(240, 210, 80, 0.06) 50%, transparent 72%);
-  animation: bar-shimmer 4.5s linear infinite;
-  pointer-events: none;
-}
-
-.section-bar-noticias::before {
-  content: '';
-  position: absolute; width: 170px; height: 170px;
-  background: radial-gradient(circle, rgba(168, 135, 107, 0.12) 0%, transparent 70%);
-  right: -20px; bottom: -65px;
-  animation: bar-orb-drift 9.5s ease-in-out infinite reverse;
-  pointer-events: none;
-}
-.section-bar-noticias::after {
-  content: '';
-  position: absolute; left: 0; right: 0; height: 1px; top: 0;
-  background: linear-gradient(90deg, transparent, rgba(168, 135, 107, 0.30), transparent);
-  animation: bar-breathe 3.2s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.section-bar-contactos::before {
-  content: '';
-  position: absolute;
-  width: 170px;
-  height: 170px;
-  left: -30px;
-  top: -55px;
-  background: radial-gradient(circle, rgba(180, 145, 95, 0.14) 0%, transparent 70%);
-  animation: bar-orb-drift 7.5s ease-in-out infinite;
-  pointer-events: none;
-}
-.section-bar-contactos::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(210, 175, 120, 0.35), transparent);
-  animation: bar-breathe 3.2s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.section-bar-contactos {
-  animation: bar-pulse-ring 2.8s ease-in-out infinite;
-}
-
 /* ═══════════════════════════════════════════════════════════
    TINTS DE TAB
    ═══════════════════════════════════════════════════════════ */
 :root {
   --tab-inicio:    rgba(196, 123, 28, 0.10);
   --tab-galeria:   rgba(168, 134, 107, 0.10);
-  --tab-animais:   rgba(168, 123, 90, 0.10);
+  --tab-animais:   rgba(139, 168, 122, 0.10);
   --tab-habitats:  rgba(168, 152, 122, 0.10);
   --tab-loja:      rgba(92, 74, 26, 0.10);
   --tab-noticias:  rgba(168, 135, 107, 0.10);
