@@ -27,7 +27,7 @@
 
   /* CORES DAS ABAS — TONS CLAROS E SUAVES */
   --c-inicio:   #C47B1C;      /* âmbar */
-  --c-galeria:  #B8B0A0;      /* dirty gray — cinza suave */
+  --c-galeria:  #A8866B;      /* beasty brown — castanho terroso claro */
   --c-animais:  #7DB37A;      /* goblin green — verde claro */
   --c-habitats: #A8987A;      /* dark khaki — bege acinzentado */
   --c-loja:     #7A6020;      /* dourado-bronze */
@@ -87,13 +87,13 @@ body {
   );
 }
 
-/* ── GALERIA: dirty gray — cinza suave ── */
+/* ── GALERIA: beasty brown — castanho terroso claro ── */
 .public-site-wrapper.tab-galeria::before {
   background: linear-gradient(155deg,
-    rgba(210, 205, 195, 0.82) 0%,
-    rgba(195, 190, 180, 0.72) 45%,
-    rgba(215, 210, 200, 0.78) 75%,
-    rgba(205, 200, 190, 0.85) 100%
+    rgba(210, 185, 165, 0.82) 0%,
+    rgba(195, 170, 150, 0.72) 45%,
+    rgba(220, 195, 175, 0.78) 75%,
+    rgba(205, 180, 160, 0.85) 100%
   );
 }
 
@@ -354,23 +354,23 @@ body {
   pointer-events: none;
 }
 
-/* ── GALERIA: dirty gray ── */
+/* ── GALERIA: beasty brown ── */
 .section-bar-galeria {
   background: linear-gradient(135deg,
-    rgba(210, 205, 195, 0.95) 0%,
-    rgba(220, 215, 205, 0.97) 45%,
-    rgba(205, 200, 190, 0.95) 100%
+    rgba(210, 185, 165, 0.95) 0%,
+    rgba(220, 195, 175, 0.97) 45%,
+    rgba(205, 180, 160, 0.95) 100%
   );
-  border: 1px solid rgba(160, 155, 145, 0.30);
+  border: 1px solid rgba(168, 134, 107, 0.30);
   box-shadow:
-    0 1px 0 rgba(160, 155, 145, 0.20) inset,
+    0 1px 0 rgba(168, 134, 107, 0.20) inset,
     0 4px 24px rgba(43, 26, 10, 0.10);
-  color: #3D3A35;
+  color: #3D2E1E;
 }
 .section-bar-galeria::before {
   content: '';
   position: absolute; width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(160, 155, 145, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(168, 134, 107, 0.12) 0%, transparent 70%);
   right: -40px; top: -90px;
   animation: bar-orb-drift 6.5s ease-in-out infinite;
   pointer-events: none;
@@ -378,7 +378,7 @@ body {
 .section-bar-galeria::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(110deg, transparent 28%, rgba(160, 155, 145, 0.08) 50%, transparent 72%);
+  background: linear-gradient(110deg, transparent 28%, rgba(168, 134, 107, 0.08) 50%, transparent 72%);
   animation: bar-shimmer 3.8s linear infinite;
   pointer-events: none;
 }
@@ -541,7 +541,7 @@ body {
    ═══════════════════════════════════════════════════════════ */
 :root {
   --tab-inicio:    rgba(196, 123, 28, 0.10);
-  --tab-galeria:   rgba(184, 178, 168, 0.10);
+  --tab-galeria:   rgba(168, 134, 107, 0.10);
   --tab-animais:   rgba(125, 179, 122, 0.10);
   --tab-habitats:  rgba(168, 152, 122, 0.10);
   --tab-loja:      rgba(92, 74, 26, 0.10);
