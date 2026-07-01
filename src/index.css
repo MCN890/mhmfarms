@@ -10,6 +10,7 @@
 
 /* ═══════════════════════════════════════════════════════════
    DESIGN TOKENS — MHM FARMS AFRICAN RESERVE
+   PALETA FINAL RECOMENDADA
    ═══════════════════════════════════════════════════════════ */
 :root {
   --ink:        #2B1A0A;
@@ -25,14 +26,16 @@
   --copper:     #A05A18;
   --rust:       #7A3B12;
 
-  /* CORES DAS ABAS — CORRIGIDAS */
-  --c-inicio:   #C47B1C;      /* âmbar */
-  --c-galeria:  #A8866B;      /* beasty brown — castanho terroso */
-  --c-animais:  #7DB37A;      /* goblin green — verde (ANIMAIS) */
-  --c-habitats: #A8987A;      /* dark khaki — bege acinzentado (HABITATS) */
-  --c-loja:     #7A6020;      /* dourado-bronze */
-  --c-noticias: #A8876B;      /* bronze brown — castanho claro */
-  --c-contactos:#2A6878;      /* petróleo-profundo */
+  /* ════════════════════════════════════════
+     PALETA FINAL POR ABA
+     ════════════════════════════════════════ */
+  --c-inicio:   #C47B1C;      /* Âmbar Dourado — luz da manhã */
+  --c-galeria:  #A8866B;      /* Beasty Brown — madeira nobre */
+  --c-animais:  #A87B5A;      /* Baobab Bark — tronco de baobá */
+  --c-habitats: #A8987A;      /* Dark Khaki — savana e vegetação */
+  --c-loja:     #7A6020;      /* Bronze Dourado — mercado africano */
+  --c-noticias: #A8876B;      /* Bronze Brown — pergaminho antigo */
+  --c-contactos:#2A6878;      /* Petróleo Profundo — lago Niassa */
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -55,7 +58,7 @@ body {
 .font-mono   { font-family: 'JetBrains Mono', monospace; }
 
 /* ═══════════════════════════════════════════════════════════
-   BACKGROUND PANORÂMICO
+   BACKGROUND PANORÂMICO — OVERLAYS POR ABA
    ═══════════════════════════════════════════════════════════ */
 .public-site-wrapper {
   position: relative;
@@ -77,7 +80,7 @@ body {
   transition: background 0.9s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ── INÍCIO: âmbar ── */
+/* ── INÍCIO: Âmbar Dourado ── */
 .public-site-wrapper.tab-inicio::before {
   background: linear-gradient(155deg,
     rgba(250, 235, 195, 0.80) 0%,
@@ -87,7 +90,7 @@ body {
   );
 }
 
-/* ── GALERIA: beasty brown ── */
+/* ── GALERIA: Beasty Brown ── */
 .public-site-wrapper.tab-galeria::before {
   background: linear-gradient(155deg,
     rgba(210, 185, 165, 0.82) 0%,
@@ -97,17 +100,17 @@ body {
   );
 }
 
-/* ── ANIMAIS: goblin green (verde) ── */
+/* ── ANIMAIS: Baobab Bark ── */
 .public-site-wrapper.tab-animais::before {
   background: linear-gradient(155deg,
-    rgba(195, 225, 192, 0.82) 0%,
-    rgba(180, 215, 178, 0.72) 40%,
-    rgba(200, 230, 198, 0.78) 70%,
-    rgba(190, 220, 188, 0.85) 100%
+    rgba(210, 185, 165, 0.82) 0%,
+    rgba(195, 170, 150, 0.72) 40%,
+    rgba(220, 195, 175, 0.78) 70%,
+    rgba(205, 180, 160, 0.85) 100%
   );
 }
 
-/* ── HABITATS: dark khaki (bege acinzentado) ── */
+/* ── HABITATS: Dark Khaki ── */
 .public-site-wrapper.tab-habitats::before {
   background: linear-gradient(155deg,
     rgba(200, 190, 175, 0.82) 0%,
@@ -117,7 +120,7 @@ body {
   );
 }
 
-/* ── LOJA: dourado-bronze ── */
+/* ── LOJA: Bronze Dourado ── */
 .public-site-wrapper.tab-loja::before {
   background: linear-gradient(155deg,
     rgba(248, 235, 185, 0.82) 0%,
@@ -127,7 +130,7 @@ body {
   );
 }
 
-/* ── NOTÍCIAS: bronze brown ── */
+/* ── NOTÍCIAS: Bronze Brown ── */
 .public-site-wrapper.tab-noticias::before {
   background: linear-gradient(155deg,
     rgba(215, 190, 170, 0.82) 0%,
@@ -137,7 +140,7 @@ body {
   );
 }
 
-/* ── CONTACTOS: petróleo-azul ── */
+/* ── CONTACTOS: Petróleo Profundo ── */
 .public-site-wrapper.tab-contactos::before {
   background: linear-gradient(155deg,
     rgba(184, 154, 106, 0.82) 0%,
@@ -236,7 +239,7 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   NAV PILL
+   NAV PILL — ESTADOS ATIVOS
    ═══════════════════════════════════════════════════════════ */
 .glass-pill-nav {
   background: rgba(43, 26, 10, 0.06);
@@ -286,7 +289,7 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   SECTION BARS
+   SECTION BARS — ANIMAÇÕES
    ═══════════════════════════════════════════════════════════ */
 @keyframes bar-shimmer {
   0%   { transform: translateX(-120%); }
@@ -332,7 +335,7 @@ body {
   -webkit-backdrop-filter: blur(18px);
 }
 
-/* ── INÍCIO: âmbar ── */
+/* ── INÍCIO: Âmbar Dourado ── */
 .section-bar-inicio {
   background: linear-gradient(270deg,
     rgba(245, 225, 175, 0.92),
@@ -354,7 +357,7 @@ body {
   pointer-events: none;
 }
 
-/* ── GALERIA: beasty brown ── */
+/* ── GALERIA: Beasty Brown ── */
 .section-bar-galeria {
   background: linear-gradient(135deg,
     rgba(210, 185, 165, 0.95) 0%,
@@ -383,36 +386,36 @@ body {
   pointer-events: none;
 }
 
-/* ── ANIMAIS: goblin green (verde) ── */
+/* ── ANIMAIS: Baobab Bark ── */
 .section-bar-animais {
   background: linear-gradient(135deg,
-    rgba(195, 225, 192, 0.95) 0%,
-    rgba(205, 235, 202, 0.97) 50%,
-    rgba(190, 220, 188, 0.95) 100%
+    rgba(210, 185, 165, 0.95) 0%,
+    rgba(220, 195, 175, 0.97) 50%,
+    rgba(205, 180, 160, 0.95) 100%
   );
-  border: 1px solid rgba(125, 179, 122, 0.30);
+  border: 1px solid rgba(168, 123, 90, 0.30);
   box-shadow:
-    0 1px 0 rgba(125, 179, 122, 0.20) inset,
+    0 1px 0 rgba(168, 123, 90, 0.20) inset,
     0 4px 24px rgba(43, 26, 10, 0.08);
-  color: #2D4A2B;
+  color: #3D2A1A;
 }
 .section-bar-animais::before {
   content: '';
   position: absolute; left: 0; right: 0; height: 1.5px;
-  background: linear-gradient(90deg, transparent 0%, rgba(125, 179, 122, 0.40) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(168, 123, 90, 0.40) 50%, transparent 100%);
   animation: bar-scanline 3s linear infinite;
   pointer-events: none;
 }
 .section-bar-animais::after {
   content: '';
   position: absolute; width: 160px; height: 160px;
-  background: radial-gradient(circle, rgba(125, 179, 122, 0.10) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(168, 123, 90, 0.10) 0%, transparent 70%);
   left: -30px; bottom: -70px;
   animation: bar-orb-drift 8.5s ease-in-out infinite reverse;
   pointer-events: none;
 }
 
-/* ── HABITATS: dark khaki (bege acinzentado) ── */
+/* ── HABITATS: Dark Khaki ── */
 .section-bar-habitats {
   background: linear-gradient(135deg,
     rgba(200, 190, 175, 0.95) 0%,
@@ -441,7 +444,7 @@ body {
   pointer-events: none;
 }
 
-/* ── LOJA: dourado-bronze ── */
+/* ── LOJA: Bronze Dourado ── */
 .section-bar-loja {
   background: linear-gradient(135deg,
     rgba(245, 230, 190, 0.95) 0%,
@@ -469,7 +472,7 @@ body {
   pointer-events: none;
 }
 
-/* ── NOTÍCIAS: bronze brown ── */
+/* ── NOTÍCIAS: Bronze Brown ── */
 .section-bar-noticias {
   background: linear-gradient(135deg,
     rgba(215, 190, 170, 0.95) 0%,
@@ -498,7 +501,7 @@ body {
   pointer-events: none;
 }
 
-/* ── CONTACTOS ── */
+/* ── CONTACTOS: Petróleo Profundo ── */
 .section-bar-contactos {
   position: relative;
   overflow: hidden;
@@ -542,7 +545,7 @@ body {
 :root {
   --tab-inicio:    rgba(196, 123, 28, 0.10);
   --tab-galeria:   rgba(168, 134, 107, 0.10);
-  --tab-animais:   rgba(125, 179, 122, 0.10);
+  --tab-animais:   rgba(168, 123, 90, 0.10);
   --tab-habitats:  rgba(168, 152, 122, 0.10);
   --tab-loja:      rgba(92, 74, 26, 0.10);
   --tab-noticias:  rgba(168, 135, 107, 0.10);
@@ -599,7 +602,7 @@ body {
 .news-stack-card.stack-mid    { left:22%; top:15%; z-index:3; transform:translateY(18px) scale(0.94); opacity:0.7; }
 .news-stack-card.stack-back   { left:25%; top:20%; z-index:1; transform:translateY(36px) scale(0.88); opacity:0.4; }
 .news-stack-card.stack-hidden { left:19%; top:10%; z-index:0; transform:translateY(0) scale(0.7); opacity:0; pointer-events:none; }
-.news-stack-card.img { width:100%; height:100%; object-fit:cover; }
+.news-stack-card img { width:100%; height:100%; object-fit:cover; }
 
 /* ═══════════════════════════════════════════════════════════
    THUMBNAIL STRIP
