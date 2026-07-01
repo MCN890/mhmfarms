@@ -10,42 +10,35 @@
 
 /* ═══════════════════════════════════════════════════════════
    DESIGN TOKENS — MHM FARMS AFRICAN RESERVE
-   Paleta Luminosa: savana ao meio-dia, luz quente e arejada.
    ═══════════════════════════════════════════════════════════ */
 :root {
-  /* Neutros estruturais — invertidos para tema claro */
-  --ink:        #2B1A0A;    /* texto principal — casca de acácia */
-  --charcoal:   #F5EFE4;    /* fundo base — marfim cálido */
-  --bark:       #2B1A0A;    /* texto secundário escuro */
-  --teak:       #7A5C38;    /* texto terciário */
+  --ink:        #2B1A0A;
+  --charcoal:   #F5EFE4;
+  --bark:       #2B1A0A;
+  --teak:       #7A5C38;
+  --ivory:      #FAF5EC;
+  --cream:      #F0E8D5;
+  --sand:       #D9C9A8;
+  --dust:       #7A5C38;
+  --gold:       #D4A027;
+  --amber:      #C47B1C;
+  --copper:     #A05A18;
+  --rust:       #7A3B12;
 
-  /* Marfim e creme — agora como fundos */
-  --ivory:      #FAF5EC;    /* marfim puro — fundo principal */
-  --cream:      #F0E8D5;    /* creme quente — fundo cards */
-  --sand:       #D9C9A8;    /* areia dourada — bordas */
-  --dust:       #7A5C38;    /* terra poeirenta — texto muted */
-
-  /* Acentos cromáticos — inalterados */
-  --gold:       #D4A027;    /* ouro savana */
-  --amber:      #C47B1C;    /* âmbar africano */
-  --copper:     #A05A18;    /* cobre envelhecido */
-  --rust:       #7A3B12;    /* ferrugem seca */
-
-  /* Cores de página — derivadas da paleta enviada pelo utilizador */
-  --c-inicio:   #C47B1C;   /* âmbar quente — savana ao amanhecer */
-  --c-galeria:  #5A8A6A;   /* verde-sage — natureza viva */
-  --c-animais:  #7B4A1A;   /* mogno-terra — predadores e savana */
-  --c-habitats: #3A7A5A;   /* verde-esmeralda — floresta e ribeiras */
-  --c-loja:     #7A6020;   /* dourado-bronze — mercado africano */
-  --c-noticias: #A67B5B;   /* café com leite — acolhedor e cremoso */
-  --c-contactos:#2A6878;   /* petróleo-profundo — lago Niassa */
+  /* CORES DAS ABAS — TONS CLAROS E SUAVES */
+  --c-inicio:   #C47B1C;      /* âmbar */
+  --c-galeria:  #B8B0A0;      /* dirty gray — cinza suave */
+  --c-animais:  #7DB37A;      /* goblin green — verde claro */
+  --c-habitats: #A8987A;      /* dark khaki — bege acinzentado */
+  --c-loja:     #7A6020;      /* dourado-bronze */
+  --c-noticias: #A8876B;      /* bronze brown — castanho claro */
+  --c-contactos:#2A6878;      /* petróleo-profundo */
 }
 
 /* ═══════════════════════════════════════════════════════════
    RESET + BASE
    ═══════════════════════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -62,7 +55,7 @@ body {
 .font-mono   { font-family: 'JetBrains Mono', monospace; }
 
 /* ═══════════════════════════════════════════════════════════
-   BACKGROUND PANORÂMICO — agora com overlays CLAROS
+   BACKGROUND PANORÂMICO
    ═══════════════════════════════════════════════════════════ */
 .public-site-wrapper {
   position: relative;
@@ -75,7 +68,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Overlay pseudo-element — muito mais claro e quente */
 .public-site-wrapper::before {
   content: '';
   position: fixed;
@@ -85,7 +77,7 @@ body {
   transition: background 0.9s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* INÍCIO — âmbar dourado savana, quente e luminoso */
+/* ── INÍCIO: âmbar ── */
 .public-site-wrapper.tab-inicio::before {
   background: linear-gradient(155deg,
     rgba(250, 235, 195, 0.80) 0%,
@@ -95,37 +87,37 @@ body {
   );
 }
 
-/* GALERIA — verde-sage luz da tarde, museu de natureza */
+/* ── GALERIA: dirty gray — cinza suave ── */
 .public-site-wrapper.tab-galeria::before {
   background: linear-gradient(155deg,
-    rgba(205, 235, 215, 0.82) 0%,
-    rgba(185, 225, 200, 0.72) 45%,
-    rgba(205, 235, 215, 0.78) 75%,
-    rgba(195, 230, 208, 0.85) 100%
+    rgba(210, 205, 195, 0.82) 0%,
+    rgba(195, 190, 180, 0.72) 45%,
+    rgba(215, 210, 200, 0.78) 75%,
+    rgba(205, 200, 190, 0.85) 100%
   );
 }
 
-/* ANIMAIS — mogno-creme, savana de predadores ao meio-dia */
+/* ── ANIMAIS: goblin green — verde claro ── */
 .public-site-wrapper.tab-animais::before {
   background: linear-gradient(155deg,
-    rgba(245, 225, 195, 0.82) 0%,
-    rgba(232, 208, 172, 0.72) 40%,
-    rgba(245, 225, 195, 0.78) 70%,
-    rgba(238, 215, 182, 0.85) 100%
+    rgba(195, 225, 192, 0.82) 0%,
+    rgba(180, 215, 178, 0.72) 40%,
+    rgba(200, 230, 198, 0.78) 70%,
+    rgba(190, 220, 188, 0.85) 100%
   );
 }
 
-/* HABITATS — verde-esmeralda, floresta ribeirinha viva */
+/* ── HABITATS: dark khaki — bege acinzentado ── */
 .public-site-wrapper.tab-habitats::before {
   background: linear-gradient(155deg,
-    rgba(195, 235, 215, 0.82) 0%,
-    rgba(170, 225, 200, 0.72) 40%,
-    rgba(195, 235, 215, 0.78) 70%,
-    rgba(182, 230, 208, 0.85) 100%
+    rgba(200, 190, 175, 0.82) 0%,
+    rgba(185, 175, 160, 0.72) 40%,
+    rgba(205, 195, 180, 0.78) 70%,
+    rgba(195, 185, 170, 0.85) 100%
   );
 }
 
-/* LOJA — dourado-bronze, mercado africano ao sol */
+/* ── LOJA: dourado-bronze ── */
 .public-site-wrapper.tab-loja::before {
   background: linear-gradient(155deg,
     rgba(248, 235, 185, 0.82) 0%,
@@ -135,20 +127,19 @@ body {
   );
 }
 
-/* NOTÍCIAS — café com leite, tom acolhedor e cremoso */
+/* ── NOTÍCIAS: bronze brown — castanho claro ── */
 .public-site-wrapper.tab-noticias::before {
   background: linear-gradient(155deg,
-    rgba(210, 180, 155, 0.82) 0%,
-    rgba(195, 165, 140, 0.72) 40%,
-    rgba(220, 190, 165, 0.78) 70%,
-    rgba(205, 175, 150, 0.85) 100%
+    rgba(215, 190, 170, 0.82) 0%,
+    rgba(200, 175, 155, 0.72) 40%,
+    rgba(225, 200, 180, 0.78) 70%,
+    rgba(210, 185, 165, 0.85) 100%
   );
 }
 
-/* CONTACTOS — petróleo-azul, lago Niassa ao sol da manhã */
+/* ── CONTACTOS: petróleo-azul ── */
 .public-site-wrapper.tab-contactos::before {
-  background: linear-gradient(
-    155deg,
+  background: linear-gradient(155deg,
     rgba(184, 154, 106, 0.82) 0%,
     rgba(208, 181, 138, 0.72) 45%,
     rgba(184, 154, 106, 0.78) 75%,
@@ -156,12 +147,11 @@ body {
   );
 }
 
-/* Conteúdo acima do overlay */
 .public-site-wrapper > * { position: relative; z-index: 1; }
 .tab-tint { display: none; }
 
 /* ═══════════════════════════════════════════════════════════
-   BARRA UTILITÁRIA SUPERIOR — clara e elegante
+   BARRA UTILITÁRIA SUPERIOR
    ═══════════════════════════════════════════════════════════ */
 #top-utility-bar {
   background: rgba(250, 245, 236, 0.94) !important;
@@ -171,7 +161,7 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   NAVEGAÇÃO PRINCIPAL — glass claro refinado
+   NAVEGAÇÃO PRINCIPAL
    ═══════════════════════════════════════════════════════════ */
 .glass-nav,
 #main-navigation {
@@ -246,7 +236,7 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   NAV PILL — claro
+   NAV PILL
    ═══════════════════════════════════════════════════════════ */
 .glass-pill-nav {
   background: rgba(43, 26, 10, 0.06);
@@ -265,7 +255,7 @@ body {
 .nav-active-contactos { background: var(--c-contactos) !important; color: #fff !important; font-weight: 700; }
 
 /* ═══════════════════════════════════════════════════════════
-   GLASS CARDS — agora em tom creme/marfim
+   GLASS CARDS
    ═══════════════════════════════════════════════════════════ */
 .glass-card {
   background: rgba(250, 245, 236, 0.72);
@@ -296,7 +286,7 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   SECTION BARS — versão clara, quente, arejada
+   SECTION BARS
    ═══════════════════════════════════════════════════════════ */
 @keyframes bar-shimmer {
   0%   { transform: translateX(-120%); }
@@ -324,10 +314,6 @@ body {
   0%   { transform: translateY(-50%) rotate(0deg); }
   100% { transform: translateY(-50%) rotate(360deg); }
 }
-@keyframes bar-particle {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
-  50%       { transform: translateY(-8px) scale(1.2); opacity: 0.9; }
-}
 @keyframes bar-aurora {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
@@ -346,7 +332,7 @@ body {
   -webkit-backdrop-filter: blur(18px);
 }
 
-/* ── INÍCIO: aurora creme-âmbar ── */
+/* ── INÍCIO: âmbar ── */
 .section-bar-inicio {
   background: linear-gradient(270deg,
     rgba(245, 225, 175, 0.92),
@@ -368,23 +354,23 @@ body {
   pointer-events: none;
 }
 
-/* ── GALERIA: ouro museu claro ── */
+/* ── GALERIA: dirty gray ── */
 .section-bar-galeria {
   background: linear-gradient(135deg,
-    rgba(250, 238, 200, 0.95) 0%,
-    rgba(255, 248, 225, 0.97) 45%,
-    rgba(248, 235, 195, 0.95) 100%
+    rgba(210, 205, 195, 0.95) 0%,
+    rgba(220, 215, 205, 0.97) 45%,
+    rgba(205, 200, 190, 0.95) 100%
   );
-  border: 1px solid rgba(196, 123, 28, 0.28);
+  border: 1px solid rgba(160, 155, 145, 0.30);
   box-shadow:
-    0 1px 0 rgba(212, 160, 39, 0.30) inset,
+    0 1px 0 rgba(160, 155, 145, 0.20) inset,
     0 4px 24px rgba(43, 26, 10, 0.10);
-  color: var(--ink);
+  color: #3D3A35;
 }
 .section-bar-galeria::before {
   content: '';
   position: absolute; width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(212, 160, 39, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(160, 155, 145, 0.12) 0%, transparent 70%);
   right: -40px; top: -90px;
   animation: bar-orb-drift 6.5s ease-in-out infinite;
   pointer-events: none;
@@ -392,57 +378,57 @@ body {
 .section-bar-galeria::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(110deg, transparent 28%, rgba(255, 220, 100, 0.08) 50%, transparent 72%);
+  background: linear-gradient(110deg, transparent 28%, rgba(160, 155, 145, 0.08) 50%, transparent 72%);
   animation: bar-shimmer 3.8s linear infinite;
   pointer-events: none;
 }
 
-/* ── ANIMAIS: creme mogno ── */
+/* ── ANIMAIS: goblin green ── */
 .section-bar-animais {
   background: linear-gradient(135deg,
-    rgba(245, 228, 200, 0.95) 0%,
-    rgba(252, 238, 212, 0.97) 50%,
-    rgba(245, 228, 200, 0.95) 100%
+    rgba(195, 225, 192, 0.95) 0%,
+    rgba(205, 235, 202, 0.97) 50%,
+    rgba(190, 220, 188, 0.95) 100%
   );
-  border: 1px solid rgba(107, 62, 18, 0.24);
+  border: 1px solid rgba(125, 179, 122, 0.30);
   box-shadow:
-    0 0 0 1px rgba(107, 62, 18, 0.06) inset,
+    0 1px 0 rgba(125, 179, 122, 0.20) inset,
     0 4px 24px rgba(43, 26, 10, 0.08);
-  color: var(--ink);
+  color: #2D4A2B;
 }
 .section-bar-animais::before {
   content: '';
   position: absolute; left: 0; right: 0; height: 1.5px;
-  background: linear-gradient(90deg, transparent 0%, rgba(196, 123, 28, 0.50) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(125, 179, 122, 0.40) 50%, transparent 100%);
   animation: bar-scanline 3s linear infinite;
   pointer-events: none;
 }
 .section-bar-animais::after {
   content: '';
   position: absolute; width: 160px; height: 160px;
-  background: radial-gradient(circle, rgba(160, 90, 20, 0.10) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(125, 179, 122, 0.10) 0%, transparent 70%);
   left: -30px; bottom: -70px;
   animation: bar-orb-drift 8.5s ease-in-out infinite reverse;
   pointer-events: none;
 }
 
-/* ── HABITATS: verde-creme malachite ── */
+/* ── HABITATS: dark khaki ── */
 .section-bar-habitats {
   background: linear-gradient(135deg,
-    rgba(210, 240, 218, 0.95) 0%,
-    rgba(225, 248, 232, 0.97) 50%,
-    rgba(210, 240, 218, 0.95) 100%
+    rgba(200, 190, 175, 0.95) 0%,
+    rgba(210, 200, 185, 0.97) 50%,
+    rgba(195, 185, 170, 0.95) 100%
   );
-  border: 1px solid rgba(45, 107, 60, 0.28);
+  border: 1px solid rgba(168, 152, 122, 0.30);
   box-shadow:
-    0 1px 0 rgba(60, 160, 90, 0.18) inset,
+    0 1px 0 rgba(168, 152, 122, 0.20) inset,
     0 4px 24px rgba(43, 26, 10, 0.08);
-  color: #1A3D25;
+  color: #3D3828;
 }
 .section-bar-habitats::before {
   content: '';
   position: absolute; width: 190px; height: 190px;
-  background: radial-gradient(circle, rgba(45, 107, 60, 0.14) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(168, 152, 122, 0.12) 0%, transparent 70%);
   right: -20px; top: -80px;
   animation: bar-orb-drift 7.5s ease-in-out infinite;
   pointer-events: none;
@@ -450,12 +436,12 @@ body {
 .section-bar-habitats::after {
   content: '';
   position: absolute; left: 0; right: 0; height: 1px; bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(60, 180, 100, 0.40), transparent);
+  background: linear-gradient(90deg, transparent, rgba(168, 152, 122, 0.30), transparent);
   animation: bar-breathe 3.2s ease-in-out infinite;
   pointer-events: none;
 }
 
-/* ── LOJA: bronze creme ── */
+/* ── LOJA: dourado-bronze ── */
 .section-bar-loja {
   background: linear-gradient(135deg,
     rgba(245, 230, 190, 0.95) 0%,
@@ -483,23 +469,23 @@ body {
   pointer-events: none;
 }
 
-/* ── NOTÍCIAS: café com leite, cremoso e acolhedor ── */
+/* ── NOTÍCIAS: bronze brown ── */
 .section-bar-noticias {
   background: linear-gradient(135deg,
-    rgba(210, 180, 155, 0.95) 0%,
-    rgba(225, 195, 170, 0.97) 50%,
-    rgba(210, 180, 155, 0.95) 100%
+    rgba(215, 190, 170, 0.95) 0%,
+    rgba(228, 205, 185, 0.97) 50%,
+    rgba(210, 185, 165, 0.95) 100%
   );
-  border: 1px solid rgba(166, 123, 91, 0.30);
+  border: 1px solid rgba(168, 135, 107, 0.30);
   box-shadow:
-    0 1px 0 rgba(166, 123, 91, 0.20) inset,
+    0 1px 0 rgba(168, 135, 107, 0.20) inset,
     0 4px 24px rgba(43, 26, 10, 0.08);
-  color: #4A3220;
+  color: #3D3020;
 }
 .section-bar-noticias::before {
   content: '';
   position: absolute; width: 170px; height: 170px;
-  background: radial-gradient(circle, rgba(166, 123, 91, 0.14) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(168, 135, 107, 0.12) 0%, transparent 70%);
   right: -20px; bottom: -65px;
   animation: bar-orb-drift 9.5s ease-in-out infinite reverse;
   pointer-events: none;
@@ -507,33 +493,26 @@ body {
 .section-bar-noticias::after {
   content: '';
   position: absolute; left: 0; right: 0; height: 1px; top: 0;
-  background: linear-gradient(90deg, transparent, rgba(166, 123, 91, 0.35), transparent);
+  background: linear-gradient(90deg, transparent, rgba(168, 135, 107, 0.30), transparent);
   animation: bar-breathe 3.2s ease-in-out infinite;
   pointer-events: none;
 }
 
-/* ── CONTACTOS: creme escuro ── */
+/* ── CONTACTOS ── */
 .section-bar-contactos {
   position: relative;
   overflow: hidden;
-
   background: linear-gradient(
     135deg,
     rgba(191, 165, 122, 0.95) 0%,
     rgba(209, 188, 151, 0.97) 50%,
     rgba(191, 165, 122, 0.95) 100%
   );
-
   border: 1px solid rgba(120, 92, 55, 0.26);
-
-  box-shadow:
-    0 4px 24px rgba(43, 26, 10, 0.08);
-
+  box-shadow: 0 4px 24px rgba(43, 26, 10, 0.08);
   color: #4A3420;
-
   animation: bar-pulse-ring 2.8s ease-in-out infinite;
 }
-
 .section-bar-contactos::before {
   content: '';
   position: absolute;
@@ -541,17 +520,10 @@ body {
   height: 170px;
   left: -30px;
   top: -55px;
-
-  background: radial-gradient(
-    circle,
-    rgba(180, 145, 95, 0.14) 0%,
-    transparent 70%
-  );
-
+  background: radial-gradient(circle, rgba(180, 145, 95, 0.14) 0%, transparent 70%);
   animation: bar-orb-drift 7.5s ease-in-out infinite;
   pointer-events: none;
 }
-
 .section-bar-contactos::after {
   content: '';
   position: absolute;
@@ -559,14 +531,7 @@ body {
   right: 0;
   top: 0;
   height: 1px;
-
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(210, 175, 120, 0.35),
-    transparent
-  );
-
+  background: linear-gradient(90deg, transparent, rgba(210, 175, 120, 0.35), transparent);
   animation: bar-breathe 3.2s ease-in-out infinite;
   pointer-events: none;
 }
@@ -576,11 +541,11 @@ body {
    ═══════════════════════════════════════════════════════════ */
 :root {
   --tab-inicio:    rgba(196, 123, 28, 0.10);
-  --tab-galeria:   rgba(139, 105, 20, 0.10);
-  --tab-animais:   rgba(107, 62, 18, 0.10);
-  --tab-habitats:  rgba(45, 107, 60, 0.10);
+  --tab-galeria:   rgba(184, 178, 168, 0.10);
+  --tab-animais:   rgba(125, 179, 122, 0.10);
+  --tab-habitats:  rgba(168, 152, 122, 0.10);
   --tab-loja:      rgba(92, 74, 26, 0.10);
-  --tab-noticias:  rgba(166, 123, 91, 0.10);
+  --tab-noticias:  rgba(168, 135, 107, 0.10);
   --tab-contactos: rgba(26, 77, 92, 0.10);
 }
 
@@ -637,7 +602,7 @@ body {
 .news-stack-card img { width:100%; height:100%; object-fit:cover; }
 
 /* ═══════════════════════════════════════════════════════════
-   THUMBNAIL STRIP — GALERIA
+   THUMBNAIL STRIP
    ═══════════════════════════════════════════════════════════ */
 .thumb-luxury-strip {
   display:flex; gap:10px; padding:6px 0;
