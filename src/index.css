@@ -25,11 +25,11 @@
   --copper:     #A05A18;
   --rust:       #7A3B12;
 
-  /* CORES DAS ABAS — TONS CLAROS E SUAVES */
+  /* CORES DAS ABAS — CORRIGIDAS */
   --c-inicio:   #C47B1C;      /* âmbar */
-  --c-galeria:  #A8866B;      /* beasty brown — castanho terroso claro */
-  --c-animais:  #7DB37A;      /* goblin green — verde claro */
-  --c-habitats: #A8987A;      /* dark khaki — bege acinzentado */
+  --c-galeria:  #A8866B;      /* beasty brown — castanho terroso */
+  --c-animais:  #7DB37A;      /* goblin green — verde (ANIMAIS) */
+  --c-habitats: #A8987A;      /* dark khaki — bege acinzentado (HABITATS) */
   --c-loja:     #7A6020;      /* dourado-bronze */
   --c-noticias: #A8876B;      /* bronze brown — castanho claro */
   --c-contactos:#2A6878;      /* petróleo-profundo */
@@ -87,7 +87,7 @@ body {
   );
 }
 
-/* ── GALERIA: beasty brown — castanho terroso claro ── */
+/* ── GALERIA: beasty brown ── */
 .public-site-wrapper.tab-galeria::before {
   background: linear-gradient(155deg,
     rgba(210, 185, 165, 0.82) 0%,
@@ -97,7 +97,7 @@ body {
   );
 }
 
-/* ── ANIMAIS: goblin green — verde claro ── */
+/* ── ANIMAIS: goblin green (verde) ── */
 .public-site-wrapper.tab-animais::before {
   background: linear-gradient(155deg,
     rgba(195, 225, 192, 0.82) 0%,
@@ -107,7 +107,7 @@ body {
   );
 }
 
-/* ── HABITATS: dark khaki — bege acinzentado ── */
+/* ── HABITATS: dark khaki (bege acinzentado) ── */
 .public-site-wrapper.tab-habitats::before {
   background: linear-gradient(155deg,
     rgba(200, 190, 175, 0.82) 0%,
@@ -127,7 +127,7 @@ body {
   );
 }
 
-/* ── NOTÍCIAS: bronze brown — castanho claro ── */
+/* ── NOTÍCIAS: bronze brown ── */
 .public-site-wrapper.tab-noticias::before {
   background: linear-gradient(155deg,
     rgba(215, 190, 170, 0.82) 0%,
@@ -383,7 +383,7 @@ body {
   pointer-events: none;
 }
 
-/* ── ANIMAIS: goblin green ── */
+/* ── ANIMAIS: goblin green (verde) ── */
 .section-bar-animais {
   background: linear-gradient(135deg,
     rgba(195, 225, 192, 0.95) 0%,
@@ -412,7 +412,7 @@ body {
   pointer-events: none;
 }
 
-/* ── HABITATS: dark khaki ── */
+/* ── HABITATS: dark khaki (bege acinzentado) ── */
 .section-bar-habitats {
   background: linear-gradient(135deg,
     rgba(200, 190, 175, 0.95) 0%,
@@ -599,7 +599,7 @@ body {
 .news-stack-card.stack-mid    { left:22%; top:15%; z-index:3; transform:translateY(18px) scale(0.94); opacity:0.7; }
 .news-stack-card.stack-back   { left:25%; top:20%; z-index:1; transform:translateY(36px) scale(0.88); opacity:0.4; }
 .news-stack-card.stack-hidden { left:19%; top:10%; z-index:0; transform:translateY(0) scale(0.7); opacity:0; pointer-events:none; }
-.news-stack-card img { width:100%; height:100%; object-fit:cover; }
+.news-stack-card.img { width:100%; height:100%; object-fit:cover; }
 
 /* ═══════════════════════════════════════════════════════════
    THUMBNAIL STRIP
